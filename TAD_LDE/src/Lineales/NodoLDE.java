@@ -9,6 +9,20 @@ package Lineales;
  *
  * @author Diegojim
  */
-public class NodoLDE {
+public class NodoLDE <E> {
+    
+    NodoLDE<E> siguiente;
+    NodoLDE<E> anterior;
+    E dato;
+    
+    NodoLDE(E dato){
+        this(dato, null, null);
+    }
+    
+    NodoLDE(E dato, NodoLDE<E> sig, NodoLDE<E> ant){
+        this.dato = dato;
+        this.siguiente = sig;
+        this.anterior = ant;
+    }
     
 }
