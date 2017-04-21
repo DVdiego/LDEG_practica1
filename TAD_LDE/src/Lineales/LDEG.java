@@ -93,12 +93,19 @@ public class LDEG<E> implements ListaDE<E> {
 
     @Override
     public boolean esVacia() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(primero == null) return true;
+        else return false;
     }
 
     @Override
     public boolean contiene(Object x) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        NodoLDE<E> aux = primero;
+        int cont = 0;
+        while(aux.siguiente!=null||!x.equals(aux.dato)){
+            aux = aux.siguiente;
+        }
+        if(x.equals(aux.dato)) return true;
+        else return false;
     }
 
     @Override
