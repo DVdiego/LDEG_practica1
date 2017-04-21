@@ -9,11 +9,11 @@ package Lineales;
  *
  * @author Diegojim
  */
-public interface ListaDE {
+public interface ListaDE<E> {
     
-    public abstract void insertar(Object x);
+    public abstract void insertar(E x);
     
-    public abstract void insertar(Object x, int i);
+    public abstract void insertar(E x, int i);
     
     public abstract void insertarEnFin(Object x);
     

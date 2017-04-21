@@ -11,9 +11,9 @@ package Lineales;
  */
 public class NodoLDE <E> {
     
-    NodoLDE<E> siguiente;
-    NodoLDE<E> anterior;
-    E dato;
+    protected NodoLDE<E> siguiente;
+    protected NodoLDE<E> anterior;
+    protected E dato;
     
     NodoLDE(E dato){
         this(dato, null, null);
