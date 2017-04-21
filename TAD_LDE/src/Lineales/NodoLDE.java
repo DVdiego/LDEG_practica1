@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TAD_LDE;
+package Lineales;
 
 /**
  *
  * @author Diegojim
  */
-public interface InterfazListaDE {
-    
-    
+public class NodoLDE {
     
 }
