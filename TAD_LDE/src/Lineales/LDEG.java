@@ -48,7 +48,7 @@ public class LDEG<E> implements ListaDE<E> {
     }
 
     @Override
-    public void insertarEnFin(Object x) {
+    public void insertarEnFin(E x) {
         NodoLDE<E> nuevo = new NodoLDE<E>(x);
         NodoLDE<E> aux = primero;
         while(aux.siguiente!=null){

@@ -29,7 +29,7 @@ public interface ListaDE<E> {
     
     public abstract boolean esVacia();
     
-    public abstract boolean contiene(Object x);
+    public abstract boolean contiene(E x);
     
     public abstract boolean esIgual(Object x);
     
