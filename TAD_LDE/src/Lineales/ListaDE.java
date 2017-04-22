@@ -15,7 +15,7 @@ public interface ListaDE<E> {
     
     public abstract void insertar(E x, int i);
     
-    public abstract void insertarEnFin(Object x);
+    public abstract void insertarEnFin(E x);
     
     public abstract int indiceDe(Object x);
     
