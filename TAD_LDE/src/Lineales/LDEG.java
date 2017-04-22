@@ -43,33 +43,48 @@ public class LDEG<E> implements ListaDE<E> {
             aux.anterior = nuevo;
             nuevo.siguiente = aux; 
         }
-        if(i == talla()){ // inserción al final
-            for(int j = 1;j<talla();j++){
-                aux = aux.siguiente;
-            }
-            aux.siguiente = nuevo;
-            nuevo.anterior = aux;
-        }
+        
+        if(i == talla()) insertarEnFin(x); //insertar al final
     }
 
     @Override
     public void insertarEnFin(Object x) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        NodoLDE<E> nuevo = new NodoLDE<E>(x);
+        NodoLDE<E> aux = primero;
+        while(aux.siguiente!=null){
+            aux = aux.siguiente;
+        }
+        aux.siguiente = nuevo;
+        nuevo.anterior = aux;
+}
 
     @Override
     public int indiceDe(Object x) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        NodoLDE<E> aux = primero;
+        int cont = 0;
+        while(aux.dato!=x || aux.siguiente!=null){
+            aux = aux.siguiente;
+            cont++;
+        }
+        if(aux.dato == x) return cont;
+        else return -1;
     }
 
     @Override
     public Object recuperar(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        NodoLDE<E> aux = primero;
+        if(i>=0 && i<talla()){
+            for (int j=0; j<i; j++){
+                aux = aux.siguiente;
+            }
+            return aux.dato;
+        } else return null;
     }
 
     @Override
     public boolean vaciarLista() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        primero = null;
+        return true;
     }
 
     @Override
@@ -88,7 +103,36 @@ public class LDEG<E> implements ListaDE<E> {
 
     @Override
     public boolean eliminar(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        NodoLDE<E> aux = primero;
+        NodoLDE<E> sig = aux.siguiente;
+        NodoLDE<E> ant = aux.anterior;
+        int cont = 0;
+        if(i == 0){ //borrado al principio
+            sig.anterior = null;
+            primero = aux.siguiente;
+            cont++;
+        }
+        if(i < talla()-1 && i>0){ // borrado en medio
+            for(int j = 1;j<=i;j++){
+                aux = aux.siguiente;
+                ant = aux.anterior;
+                sig = aux.siguiente;
+            }
+            ant.siguiente = aux.siguiente;
+            sig.anterior = aux.anterior;
+            cont++;
+        }
+        if(i == talla()-1){  //borrado al final 
+            while(aux.siguiente!=null){
+                aux = aux.siguiente;
+                ant = aux.anterior;
+            }
+            ant.siguiente = null;
+            cont++;
+        }
+        if(cont>0) return true;
+        else return false;
+
     }
 
     @Override
@@ -115,7 +159,16 @@ public class LDEG<E> implements ListaDE<E> {
 
     @Override
     public int talla() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        NodoLDE<E> aux = primero;
+        int cont = 0;
+        if(!esVacia()){
+            cont++;
+            while(aux.siguiente!=null){
+                aux = aux.siguiente;
+                cont++;
+            }
+        }
+        return cont;
     }
 
     @Override
