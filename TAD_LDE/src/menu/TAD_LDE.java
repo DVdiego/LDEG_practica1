@@ -21,7 +21,6 @@ public class TAD_LDE {
         Scanner entrada = new Scanner (System.in); 
         boolean continuar = true;
         do{
-        
             System.out.println("+++++ MENÚ LDE ++++");
             System.out.println("1. Crear lista de claves enteras");
             System.out.println("2. Introducir claves en la lista");
@@ -34,7 +33,6 @@ public class TAD_LDE {
             System.out.println("0. Salir");
             System.out.print("Opcion:");
             String opcion = entrada.nextLine ();
-            
             
             switch(opcion){
                 
@@ -59,12 +57,10 @@ public class TAD_LDE {
                 default: continuar = true; break;
                                
                 }
-            
-    
-        }while(continuar);
-   
-        
+        }while(continuar); 
     }
+    
+    
 }
       
     
